@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaunaEst — Kvaliteetsed saunad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#7c5c38;--slate:#2c2c2a;--muted:#888780;
+  --border:rgba(0,0,0,0.10);--cream:#f5ede2;--bg:#f8f5f0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-height:100vh}
+
+/* HEADER */
+.site-header{background:var(--slate);color:#f5ede2;padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:500}
+.tagline{font-size:11px;color:rgba(245,237,226,0.5);letter-spacing:.06em;text-transform:uppercase}
+.nav-contact{font-size:13px;color:rgba(245,237,226,0.7);text-decoration:none;border:1px solid rgba(255,255,255,0.2);padding:.35rem .85rem;border-radius:6px;transition:background .15s}
+.nav-contact:hover{background:rgba(255,255,255,0.08)}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;text-align:center;max-width:680px;margin:0 auto}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:500;line-height:1.15;color:var(--slate);margin-bottom:1.25rem}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto}
+
+/* PRODUCTS GRID */
+.products-section{max-width:1100px;margin:0 auto;padding:0 2rem 6rem}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+
+/* PRODUCT CARD */
+.product-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .2s,transform .15s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.product-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.10);transform:translateY(-3px)}
+.card-img{width:100%;height:240px;object-fit:cover;display:block;background:#e8e4de}
+.card-img-placeholder{width:100%;height:240px;background:linear-gradient(135deg,#e8e4de,#d4cfc8);display:flex;align-items:center;justify-content:center;font-size:48px}
+.card-body{padding:1.5rem}
+.card-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:#fdf3e8;border-radius:4px;padding:3px 8px;margin-bottom:.75rem}
+.card-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:.5rem;line-height:1.2}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
+.card-specs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.35rem}
+.spec-pill{font-size:11px;color:var(--slate);background:#f5f3f0;border-radius:20px;padding:4px 10px;font-weight:500}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border)}
+.card-price{font-size:18px;font-weight:600;color:var(--slate)}
+.card-price span{font-size:12px;font-weight:400;color:var(--muted);display:block;margin-top:1px}
+.card-cta{background:var(--slate);color:#f5ede2;border:none;border-radius:8px;padding:.6rem 1.1rem;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:background .15s;white-space:nowrap}
+.card-cta:hover{background:var(--accent)}
+
+/* USP STRIP */
+.usp-strip{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem;margin-bottom:4rem}
+.usp-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.usp-item{text-align:center}
+.usp-icon{font-size:24px;margin-bottom:.5rem}
+.usp-label{font-size:12px;font-weight:500;color:var(--slate)}
+.usp-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* FOOTER */
+.site-footer{background:var(--slate);color:rgba(245,237,226,0.5);text-align:center;padding:2rem;font-size:12px}
+.site-footer a{color:rgba(245,237,226,0.7);text-decoration:none}
+.site-footer a:hover{color:#f5ede2}
+
+@media(max-width:600px){
+  .hero{padding:3rem 1.5rem 2.5rem}
+  .products-section{padding:0 1.5rem 4rem}
+  .usp-inner{gap:1.5rem}
+  .site-header{padding:0 1rem}
+  .tagline{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">SaunaEst</div>
+  <div class="tagline">Eesti käsitöö saunad</div>
+  <a href="mailto:info@saunaest.ee" class="nav-contact">Võta ühendust</a>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Käsitöö kvaliteet</div>
+  <h1 class="hero-title">Saun, mis sobib<br>just teile</h1>
+  <p class="hero-sub">Vali allpool endale sobiv saun.</p>
+</section>
+
+<div class="usp-strip">
+  <div class="usp-inner">
+    <div class="usp-item"><div class="usp-icon">🇪🇪</div><div class="usp-label">Eesti toodang</div><div class="usp-sub">100% kohalik käsitöö</div></div>
+    <div class="usp-item"><div class="usp-icon">🌲</div><div class="usp-label">Looduslik puit</div><div class="usp-sub">Kask, haab, lepp, mänd</div></div>
+    <div class="usp-item"><div class="usp-icon">🚚</div><div class="usp-label">Üle Eesti</div><div class="usp-sub">Tarnimine kohapeale</div></div>
+    <div class="usp-item"><div class="usp-icon">🔥</div><div class="usp-label">Harvia keris</div><div class="usp-sub">Soome kvaliteet</div></div>
+    <div class="usp-item"><div class="usp-icon">📞</div><div class="usp-label">Isiklik teenindus</div><div class="usp-sub">Räägime läbi</div></div>
+  </div>
+</div>
+
+<section class="products-section">
+  <div class="section-label">Meie tooted</div>
+  <div class="products-grid">
+
+    <!-- Viilkatusega Saun -->
+    <a href="viilkatusega-saun.html" class="product-card">
+      <img class="card-img" src="20260615_164351.jpg" alt="Viilkatusega saun haagise peal rohelisel murul" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none">🏠</div>
+      <div class="card-body">
+        <div class="card-badge">Bestseller · Laos olemas</div>
+        <div class="card-title">Viilkatusega Saun</div>
+        <div class="card-desc">Mahuka sisemõõduga 3,8 × 1,8 m saun viilkatuse ja suurte panoraamakendega. Saadaval koos haagisega — vii saun sinna, kuhu soovid.</div>
+        <div class="card-specs">
+          <span class="spec-pill">📐 3,8 × 1,8 m</span>
+          <span class="spec-pill">🔥 Harvia M3</span>
+          <span class="spec-pill">🪟 2× suur aken</span>
+          <span class="spec-pill">🚗 Haagisega</span>
+          <span class="spec-pill">🌲 Kask + haab</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">
+            alates €6 000
+            <span>+KM · haagisega €8 000</span>
+          </div>
+          <button class="card-cta">Vaata lähemalt →</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- Tünnisaun -->
+    <a href="barrel-sauna.html" class="product-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1759302353545-48b07c821abc?fm=jpg&q=85&w=800&auto=format&fit=crop" alt="Barrel sauna sisevaade kerisega" style="background:#1e1e1c">
+      <div class="card-body">
+        <div class="card-badge">Kohandatav</div>
+        <div class="card-title">Tünnisaun</div>
+        <div class="card-desc">Klassikaline torusaun kuni 6 inimesele. Vali materjal, keris ja klaasivalik — hind arvutatakse reaalajas.</div>
+        <div class="card-specs">
+          <span class="spec-pill">📐 2 m · 6 inimest</span>
+          <span class="spec-pill">🔥 Harvia M3 / Vega</span>
+          <span class="spec-pill">🌲 Kuusk / Thermowood</span>
+          <span class="spec-pill">🪟 Klaasivalik</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">
+            alates €2 000
+            <span>+KM · kohandatav</span>
+          </div>
+          <button class="card-cta">Vaata lähemalt →</button>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div>© 2025 SaunaEst · OHwood OÜ toodang</div>
+  <div style="margin-top:.5rem"><a href="mailto:info@saunaest.ee">info@saunaest.ee</a> · Kõik hinnad on ilma KM-ita</div>
+</footer>
+
+</body>
+</html>

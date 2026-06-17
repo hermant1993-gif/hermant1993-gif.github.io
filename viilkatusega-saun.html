@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viilkatusega Saun — SaunaEst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#7c5c38;--slate:#2c2c2a;--muted:#888780;
+  --border:rgba(0,0,0,0.10);--cream:#f5ede2;--bg:#f8f5f0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
+
+/* HEADER */
+.site-header{background:var(--slate);color:#f5ede2;padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;text-decoration:none;color:#f5ede2}
+.back-link{font-size:13px;color:rgba(245,237,226,0.7);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .15s}
+.back-link:hover{color:#f5ede2}
+
+/* HERO SPLIT */
+.product-hero{display:grid;grid-template-columns:1fr 420px;gap:0;max-width:1200px;margin:0 auto;padding:3rem 2rem;align-items:start}
+.gallery-col{}
+.info-col{padding:0 0 0 3rem;position:sticky;top:72px}
+
+/* GALLERY */
+.main-photo{width:100%;aspect-ratio:3/4;object-fit:contain;border-radius:14px;margin-bottom:.75rem;background:#1e1e1c;display:block}
+.thumb-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.thumb{width:80px;height:60px;object-fit:contain;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border-color .15s;background:#1e1e1c}
+.thumb:hover{border-color:var(--accent)}
+.thumb.active{border-color:var(--accent)}
+
+/* INFO */
+.back-breadcrumb{font-size:12px;color:var(--muted);margin-bottom:1rem}
+.back-breadcrumb a{color:var(--muted);text-decoration:none}
+.back-breadcrumb a:hover{color:var(--accent)}
+.product-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.product-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;line-height:1.2;margin-bottom:.75rem}
+.product-tagline{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:1.5rem}
+
+/* PRICE CARD */
+.price-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.25rem;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.price-top-bar{height:3px;background:linear-gradient(90deg,#6b4c2a,#7c5c38,#ede0cf)}
+.price-inner{padding:1.25rem 1.35rem}
+.price-option{display:flex;align-items:center;justify-content:space-between;padding:.7rem;border-radius:10px;cursor:pointer;border:1.5px solid var(--border);margin-bottom:.5rem;transition:border-color .15s,background .15s;background:#fafaf9}
+.price-option:last-child{margin-bottom:0}
+.price-option.selected{border-color:var(--accent);background:#fdf8f3}
+.price-option-label{font-size:13px;font-weight:500;color:var(--slate)}
+.price-option-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.price-option-val{font-size:17px;font-weight:600;color:var(--slate)}
+.price-option.selected .price-option-val{color:var(--accent)}
+.price-vat{font-size:10px;color:var(--muted);margin-top:.6rem;text-align:right}
+
+/* SPECS */
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.25rem}
+.spec-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.75rem}
+.spec-icon{font-size:16px;margin-bottom:.3rem}
+.spec-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.spec-val{font-size:13px;font-weight:500;color:var(--slate);line-height:1.35}
+
+/* CTA */
+.cta-btn{display:block;width:100%;padding:.95rem;background:var(--slate);color:#f5ede2;border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;text-align:center;transition:background .15s;margin-bottom:.6rem;text-decoration:none}
+.cta-btn:hover{background:var(--accent)}
+.cta-secondary{display:block;width:100%;padding:.8rem;background:transparent;color:var(--slate);border:1px solid var(--border);border-radius:10px;font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-align:center;transition:background .15s,border-color .15s;margin-bottom:1rem;text-decoration:none}
+.cta-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.trust-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.trust-item{font-size:10px;color:var(--muted);text-align:center}
+.trust-icon{font-size:16px;display:block;margin-bottom:2px}
+
+/* DETAILS SECTION */
+.details-section{max-width:1200px;margin:0 auto;padding:0 2rem 5rem}
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.detail-block{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+.detail-block-title{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.detail-list{list-style:none}
+.detail-list li{font-size:13px;color:var(--muted);padding:.45rem 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;align-items:flex-start;gap:.5rem;line-height:1.45}
+.detail-list li:last-child{border-bottom:none}
+.detail-list li::before{content:'·';color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* FOOTER */
+.site-footer{background:var(--slate);color:rgba(245,237,226,0.5);text-align:center;padding:2rem;font-size:12px;margin-top:2rem}
+.site-footer a{color:rgba(245,237,226,0.7);text-decoration:none}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--slate);color:#f5ede2;padding:.75rem 1.5rem;border-radius:100px;font-size:13px;font-weight:500;opacity:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s;z-index:999;white-space:nowrap;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+@media(max-width:860px){
+  .product-hero{grid-template-columns:1fr;padding:1.5rem}
+  .info-col{padding:1.5rem 0 0;position:static}
+  .details-grid{grid-template-columns:1fr}
+  .specs-grid{grid-template-columns:1fr 1fr}
+  .site-header{padding:0 1rem}
+}
+@media(max-width:480px){
+  .thumb{width:60px;height:46px}
+  .specs-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">SaunaEst</a>
+  <a href="index.html" class="back-link">← Kõik tooted</a>
+</header>
+
+<div class="product-hero">
+  <!-- Gallery -->
+  <div class="gallery-col">
+    <img id="main-photo" class="main-photo"
+      src="20260615_164351.jpg"
+      alt="Viilkatusega saun haagise peal"
+      onerror="this.src='';this.style.background='#e0dbd4'">
+    <div class="thumb-row">
+      <img class="thumb active" src="20260615_164351.jpg" alt="Välisvaade küljelt" onclick="setPhoto(this,'20260615_164351.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260615_164426.jpg" alt="Tagantvaade" onclick="setPhoto(this,'20260615_164426.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260615_164450.jpg" alt="Eestvaade uksega" onclick="setPhoto(this,'20260615_164450.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260604_182605.jpg" alt="Sisevaade kerisega" onclick="setPhoto(this,'20260604_182605.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260615_151323.jpg" alt="Sisevaade aknaga" onclick="setPhoto(this,'20260615_151323.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260616_101619.jpg" alt="Viilkatus seest" onclick="setPhoto(this,'20260616_101619.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260616_101725.jpg" alt="Sisevaade kerise ja lavaga" onclick="setPhoto(this,'20260616_101725.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260616_103349.jpg" alt="Uks ja plekk-küljed" onclick="setPhoto(this,'20260616_103349.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260616_103522.jpg" alt="Tagantvaade haagisega" onclick="setPhoto(this,'20260616_103522.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260616_103308.jpg" alt="Viilkatuse lähivaade" onclick="setPhoto(this,'20260616_103308.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260615_151303.jpg" alt="Lava nurk" onclick="setPhoto(this,'20260615_151303.jpg')" onerror="this.style.display='none'">
+      <img class="thumb" src="20260615_151323.jpg" alt="Sisevaade aknaga" onclick="setPhoto(this,'20260615_151323.jpg')" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="info-col">
+    <div class="back-breadcrumb"><a href="index.html">Tooted</a> → Viilkatusega Saun</div>
+    <div class="product-eyebrow">Laos olemas · Kiire tarne</div>
+    <h1 class="product-title">Viilkatusega Saun</h1>
+    <p class="product-tagline">Mahuka siseruumiga 3,8 × 1,8 m saun viilkatuse ja suurte panoraamakendega. Saadaval koos haagisega — vii saun sinna, kuhu süda ihkab.</p>
+
+    <!-- Price selector -->
+    <div class="price-card">
+      <div class="price-top-bar"></div>
+      <div class="price-inner">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Vali variant</div>
+        <div class="price-option" id="opt-ilma" onclick="selectVariant('ilma')">
+          <div>
+            <div class="price-option-label">Ilma haagiseta</div>
+            <div class="price-option-sub">Kohale toimetamine kraanaga autoga</div>
+          </div>
+          <div class="price-option-val">€6 000</div>
+        </div>
+        <div class="price-option selected" id="opt-haagis" onclick="selectVariant('haagis')">
+          <div>
+            <div class="price-option-label">Koos haagisega 🚗</div>
+            <div class="price-option-sub">Saadaval koos haagisega</div>
+          </div>
+          <div class="price-option-val">€8 000</div>
+        </div>
+        <div class="price-vat">Hindadele lisandub käibemaks (KM)</div>
+      </div>
+    </div>
+
+    <!-- Specs -->
+    <div class="specs-grid">
+      <div class="spec-item"><div class="spec-icon">📐</div><div class="spec-key">Sisemõõdud</div><div class="spec-val">3,8 × 1,8 m</div></div>
+      <div class="spec-item"><div class="spec-icon">🔥</div><div class="spec-key">Keris</div><div class="spec-val">Harvia M3</div></div>
+      <div class="spec-item"><div class="spec-icon">🪟</div><div class="spec-key">Aknad</div><div class="spec-val">2× suur 1,4 × 1,2 m</div></div>
+      <div class="spec-item"><div class="spec-icon">🌲</div><div class="spec-key">Sisevooder</div><div class="spec-val">Kask</div></div>
+      <div class="spec-item"><div class="spec-icon">🛁</div><div class="spec-key">Lava</div><div class="spec-val">Haavast</div></div>
+      <div class="spec-item"><div class="spec-icon">🏠</div><div class="spec-key">Katus & seinad</div><div class="spec-val">Plekk, klassik profiil</div></div>
+    </div>
+
+    <!-- CTAs -->
+    <a href="mailto:info@saunaest.ee?subject=Päring: Viilkatusega Saun&body=Tere!%0A%0ATahtsin küsida viilkatusega sauna kohta.%0A%0AVariant: Koos haagisega (€8 000 + KM)%0A%0APalun võtke ühendust." class="cta-btn" id="cta-main">
+      Saada päring →
+    </a>
+    <a href="tel:+3725000000" class="cta-secondary">📞 Helista ja küsi</a>
+
+    <div class="trust-row">
+      <div class="trust-item"><span class="trust-icon">🇪🇪</span>Eesti toodang</div>
+      <div class="trust-item"><span class="trust-icon">🔨</span>Käsitöö</div>
+      <div class="trust-item"><span class="trust-icon">🚚</span>Tarne Eestis</div>
+      <div class="trust-item"><span class="trust-icon">💬</span>Isiklik teenindus</div>
+    </div>
+  </div>
+</div>
+
+<!-- Details -->
+<div class="details-section">
+  <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:.75rem;border-bottom:1px solid var(--border)">Toote detailid</div>
+  <div class="details-grid">
+    <div class="detail-block">
+      <div class="detail-block-title">🌲 Materjalid</div>
+      <ul class="detail-list">
+        <li>Sisevooder — kasepuit</li>
+        <li>Lava — haavapuit (haavapuidu madal soojusjuhtivus tagab, et laud ei muutu leiliruumis istudes liiga kuumaks)</li>
+        <li>Välisvooder — männi voodrilaud</li>
+        <li>Kaks külgseina — plekist klassik profiil (must)</li>
+        <li>Katus — plekist klassik profiil (must)</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">🔥 Tehnika</div>
+      <ul class="detail-list">
+        <li>Harvia M3 puuküttekeris</li>
+        <li>Roostevabast terasest korsten</li>
+        <li>Kaks suurt akent 1,4 × 1,2 m</li>
+        <li>Klaasist välisuks</li>
+        <li>Kaks ventilatsiooni ava</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">🚗 Haagis (lisavariant)</div>
+      <ul class="detail-list">
+        
+        <li>Sobib tavaauto haakeseadmega</li>
+        <li>Platvorm + astmetrepp kaasas</li>
+        <li>Piduritega haagis, saab sõita B-kat lubadega</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">📦 Lisainfo</div>
+      <ul class="detail-list">
+        <li>Toode on laos olemas — nägemiseks võta ühendust</li>
+        <li>Tarne kokkuleppel üle Eesti</li>
+        <li>Hinnale lisandub KM</li>
+        <li>Saun on kasutusvalmis, ei vaja montaaži</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>© 2025 SaunaEst · OHwood OÜ toodang</div>
+  <div style="margin-top:.5rem"><a href="mailto:info@saunaest.ee">info@saunaest.ee</a> · Kõik hinnad on ilma KM-ita</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function setPhoto(thumb, src) {
+  document.getElementById('main-photo').src = src;
+  document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function selectVariant(v) {
+  document.getElementById('opt-ilma').classList.remove('selected');
+  document.getElementById('opt-haagis').classList.remove('selected');
+  document.getElementById('opt-' + v).classList.add('selected');
+  const label = v === 'haagis' ? 'Koos haagisega (€8 000 + KM)' : 'Ilma haagiseta (€6 000 + KM)';
+  const price = v === 'haagis' ? '€8 000' : '€6 000';
+  document.getElementById('cta-main').href =
+    'mailto:info@saunaest.ee?subject=P%C3%A4ring%3A%20Viilkatusega%20Saun&body=Tere!%0A%0ATahtsin%20k%C3%BCsida%20viilkatusega%20sauna%20kohta.%0A%0AVariant%3A%20' +
+    encodeURIComponent(label) + '%0A%0APalun%20v%C3%B5tke%20%C3%BChendust.';
+}
+</script>
+</body>
+</html>
