@@ -76,7 +76,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-
 <body>
 
 <header class="site-header">
-  <div class="logo">SaunaEst</div>
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none"><img src="logo.png" alt="SaunaEst" style="height:40px;width:auto;object-fit:contain"></a>
   <div class="tagline">Eesti käsitöö saunad</div>
   <a href="mailto:info@saunaest.ee" class="nav-contact">Võta ühendust</a>
 </header>
@@ -85,6 +85,21 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-
   <div class="hero-eyebrow">Käsitöö kvaliteet</div>
   <h1 class="hero-title">Saun, mis sobib<br>just teile</h1>
   <p class="hero-sub">Vali allpool endale sobiv saun.</p>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:0 2rem 3rem">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+    <a href="#osta" onclick="showCategory('osta');return false;" id="cat-osta" class="category-card" style="text-decoration:none;color:inherit;background:#fff;border:2px solid var(--accent);border-radius:16px;padding:1.5rem;text-align:center;transition:box-shadow .2s">
+      <div style="font-size:32px;margin-bottom:.5rem">🏡</div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:.25rem">Osta saun</div>
+      <div style="font-size:12px;color:var(--muted)">Tellige endale püsiv saun</div>
+    </a>
+    <a href="#rent" onclick="showCategory('rent');return false;" id="cat-rent" class="category-card" style="text-decoration:none;color:inherit;background:#fff;border:2px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;transition:box-shadow .2s">
+      <div style="font-size:32px;margin-bottom:.5rem">🔥</div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:.25rem">Rendi saun</div>
+      <div style="font-size:12px;color:var(--muted)">Toome sauna teie üritusele</div>
+    </a>
+  </div>
 </section>
 
 <div class="usp-strip">
@@ -97,8 +112,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-
   </div>
 </div>
 
-<section class="products-section">
-  <div class="section-label">Meie tooted</div>
+<section class="products-section" id="osta-section">
+  <div class="section-label">Müügis olevad saunad</div>
   <div class="products-grid">
 
     <!-- Viilkatusega Saun -->
@@ -119,7 +134,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-
         <div class="card-footer">
           <div class="card-price">
             alates €6 000
-            <span>+KM · haagisega €8 000</span>
+            <span>+KM · haagisega €6 000</span>
           </div>
           <button class="card-cta">Vaata lähemalt →</button>
         </div>
@@ -152,10 +167,48 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);min-
   </div>
 </section>
 
+<section class="products-section" id="rent-section" style="display:none">
+  <div class="section-label">Rendisaunad</div>
+  <div class="products-grid">
+
+    <a href="sauna-rent.html" class="product-card">
+      <img class="card-img" src="20260615_164351.jpg" alt="Rendisaun haagisel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none">🔥</div>
+      <div class="card-body">
+        <div class="card-badge">Saadaval rendile</div>
+        <div class="card-title">Ratastel Saun</div>
+        <div class="card-desc">Toome sauna otse teie üritusele, või saad tulla saunale ise järgi. Ehtne leiliõhtu juba samal päeval.</div>
+        <div class="card-specs">
+          <span class="spec-pill">📐 3,8 × 1,8 m</span>
+          <span class="spec-pill">🔥 Harvia M3</span>
+          <span class="spec-pill">🚛 Kohale toomine</span>
+          <span class="spec-pill">⚙️ Lihtne paigaldus</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">
+            alates €80
+            <span>+KM · vt rendihinnad</span>
+          </div>
+          <button class="card-cta">Vaata lähemalt →</button>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <footer class="site-footer">
   <div>© 2025 SaunaEst · OHwood OÜ toodang</div>
   <div style="margin-top:.5rem"><a href="mailto:info@saunaest.ee">info@saunaest.ee</a> · Kõik hinnad on ilma KM-ita</div>
 </footer>
 
+<script>
+function showCategory(cat) {
+  document.getElementById('osta-section').style.display = cat === 'osta' ? 'block' : 'none';
+  document.getElementById('rent-section').style.display = cat === 'rent' ? 'block' : 'none';
+  document.getElementById('cat-osta').style.borderColor = cat === 'osta' ? 'var(--accent)' : 'var(--border)';
+  document.getElementById('cat-rent').style.borderColor = cat === 'rent' ? 'var(--accent)' : 'var(--border)';
+}
+</script>
 </body>
 </html>
