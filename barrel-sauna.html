@@ -403,7 +403,7 @@
 <body>
 
 <header class="site-header">
-  <a href="index.html" style="display:flex;align-items:center;text-decoration:none"><img src="logo.png" alt="SaunaEst" style="height:40px;width:auto;object-fit:contain"></a>
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none"><img src="logo.png" alt="Päevakangelane" style="height:40px;width:auto;object-fit:contain"></a>
   <div class="tagline">Eesti käsitöö saunad</div>
   <a href="index.html" class="back-link">← Kõik tooted</a>
 </header>
@@ -577,8 +577,8 @@
 </div>
 
 <footer class="site-footer">
-  <div>© 2025 SaunaEst · OHwood OÜ toodang</div>
-  <div style="margin-top:.4rem;font-size:11px;opacity:.6">Hinnad ilma KM-ita · Tellimused ja päringud: info@saunaest.ee</div>
+  <div>© 2025 Päevakangelane · OHwood OÜ toodang</div>
+  <div style="margin-top:.4rem;font-size:11px;opacity:.6">Hinnad ilma KM-ita · Tellimused ja päringud: info@paevakangelane.ee</div>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -773,7 +773,7 @@ function handleCheckout() {
   const wn = DATA.window[state.window];
   const total = calcTotal();
   const msg = `I'd like to order a DIY Barrel Sauna Kit:\n• Size: ${sz.name}\n• Wood: ${wd.name}\n• Heater: ${ht.name}\n• Windows: ${wn.name}\n• Total: ${fmt(total)}\n\nHow do I proceed?`;
-  const mailto = `mailto:info@saunaest.ee?subject=Barrel Sauna Order — ${fmt(total)}&body=${encodeURIComponent(msg)}`;
+  const mailto = `mailto:info@paevakangelane.ee?subject=Barrel Sauna Order — ${fmt(total)}&body=${encodeURIComponent(msg)}`;
   window.open(mailto, '_blank');
   showToast('Opening your email client…');
 }
@@ -785,7 +785,7 @@ function handleQuote() {
   const wn = DATA.window[state.window];
   const total = calcTotal();
   const msg = `Hi, I'd like a quote for a DIY Barrel Sauna Kit:\n• Size: ${sz.name}\n• Wood: ${wd.name}\n• Heater: ${ht.name}\n• Windows: ${wn.name}\n• Estimated total: ${fmt(total)}\n\nPlease send me a formal quote. Thank you!`;
-  const mailto = `mailto:info@saunaest.ee?subject=Quote Request — Barrel Sauna ${sz.name}&body=${encodeURIComponent(msg)}`;
+  const mailto = `mailto:info@paevakangelane.ee?subject=Quote Request — Barrel Sauna ${sz.name}&body=${encodeURIComponent(msg)}`;
   window.open(mailto, '_blank');
   showToast('Opening quote request…');
 }
