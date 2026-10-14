@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elsa Frozen batuut — Päevakangelane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#e05a2b;--slate:#1e2a38;--muted:#7a8696;--border:rgba(0,0,0,0.10);--bg:#f6f9fc}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
+.site-header{background:var(--slate);color:#fff;padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .15s}
+.back-link:hover{color:#fff}
+.product-hero{display:grid;grid-template-columns:1fr 420px;gap:0;max-width:1200px;margin:0 auto;padding:3rem 2rem;align-items:start}
+.gallery-col{}
+.info-col{padding:0 0 0 3rem;position:sticky;top:72px}
+.main-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-bottom:.75rem;background:#1e2a38;display:block}
+.thumb-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.thumb{width:80px;height:60px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border-color .15s;background:#1e2a38}
+.thumb:hover{border-color:var(--accent)}
+.thumb.active{border-color:var(--accent)}
+.back-breadcrumb{font-size:12px;color:var(--muted);margin-bottom:1rem}
+.back-breadcrumb a{color:var(--muted);text-decoration:none}
+.back-breadcrumb a:hover{color:var(--accent)}
+.product-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.product-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;line-height:1.2;margin-bottom:.75rem}
+.product-tagline{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:1.5rem}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.25rem;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.price-top-bar{height:3px;background:linear-gradient(90deg,#c04020,#e05a2b,#f59070)}
+.price-inner{padding:1.25rem 1.35rem}
+.price-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.price-main{font-size:32px;font-weight:600;color:var(--slate);margin-bottom:.25rem}
+.price-main span{font-size:14px;font-weight:400;color:var(--muted)}
+.price-note{font-size:12px;color:var(--muted);margin-top:.4rem}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.25rem}
+.spec-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.75rem}
+.spec-icon{font-size:16px;margin-bottom:.3rem}
+.spec-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.spec-val{font-size:13px;font-weight:500;color:var(--slate);line-height:1.35}
+.cta-btn{display:block;width:100%;padding:.95rem;background:var(--slate);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;text-align:center;transition:background .15s;margin-bottom:.6rem;text-decoration:none}
+.cta-btn:hover{background:var(--accent)}
+.cta-secondary{display:block;width:100%;padding:.8rem;background:transparent;color:var(--slate);border:1px solid var(--border);border-radius:10px;font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;text-align:center;transition:background .15s,border-color .15s;margin-bottom:1rem;text-decoration:none}
+.cta-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.trust-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.trust-item{font-size:10px;color:var(--muted);text-align:center}
+.trust-icon{font-size:16px;display:block;margin-bottom:2px}
+.details-section{max-width:1200px;margin:0 auto;padding:0 2rem 5rem}
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.detail-block{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+.detail-block-title{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:1rem}
+.detail-list{list-style:none}
+.detail-list li{font-size:13px;color:var(--muted);padding:.45rem 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;align-items:flex-start;gap:.5rem;line-height:1.45}
+.detail-list li:last-child{border-bottom:none}
+.detail-list li::before{content:'·';color:var(--accent);font-weight:700;flex-shrink:0}
+.site-footer{background:var(--slate);color:rgba(255,255,255,0.45);text-align:center;padding:2rem;font-size:12px;margin-top:2rem}
+.site-footer a{color:rgba(255,255,255,0.6);text-decoration:none}
+@media(max-width:860px){
+  .product-hero{grid-template-columns:1fr;padding:1.5rem}
+  .info-col{padding:1.5rem 0 0;position:static}
+  .details-grid{grid-template-columns:1fr}
+  .site-header{padding:0 1rem}
+}
+@media(max-width:480px){.thumb{width:60px;height:46px}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-438985291"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-438985291');
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none">
+    <img src="logo.png" alt="Päevakangelane" style="height:38px;width:auto;object-fit:contain" onerror="this.style.display='none'">
+  </a>
+  <a href="index.html" class="back-link">← Tagasi avalehele</a>
+</header>
+
+<div class="product-hero">
+  <div class="gallery-col">
+    <img id="main-photo" class="main-photo"
+      src="WhatsApp Image 2026-09-24 at 15.52.02 (4).jpeg"
+      alt="Elsa Frozen batuut"
+      onerror="this.style.background='#1e2a38'">
+    <div class="thumb-row">
+      <img class="thumb active" src="WhatsApp Image 2026-09-24 at 15.52.02 (4).jpeg" alt="Elsa 1" onclick="setPhoto(this,'WhatsApp Image 2026-09-24 at 15.52.02 (4).jpeg')" onerror="this.style.display='none'">
+      <img class="thumb" src="WhatsApp Image 2026-09-24 at 15.52.02 (5).jpeg" alt="Elsa 2" onclick="setPhoto(this,'WhatsApp Image 2026-09-24 at 15.52.02 (5).jpeg')" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="info-col">
+    <div class="back-breadcrumb"><a href="index.html">Avaleht</a> → Elsa &amp; Frozen batuut</div>
+    <div class="product-eyebrow">❄️ Batuudi rent</div>
+    <h1 class="product-title">Elsa &amp; Frozen</h1>
+    <p class="product-tagline">Lumekuninganna Elsa lumemaailm otsas teie aias! See ilus batuut Frozen teemadel on täiuslik kingitus igale väikesele printsessile. Muinasjutuline õhkkond tagatud!</p>
+
+    <div class="price-card">
+      <div class="price-top-bar"></div>
+      <div class="price-inner">
+        <div class="price-label">Rendihind</div>
+        <div class="price-main">€100–150 <span>/ päev</span></div>
+        <div class="price-note">Hind sõltub asukohast ja rendiperioodist. Paigaldus ja äravõtmine hinna sees.</div>
+      </div>
+    </div>
+
+    <div class="specs-grid">
+      <div class="spec-item"><div class="spec-icon">📐</div><div class="spec-key">Mõõdud</div><div class="spec-val">5 × 5 m</div></div>
+      <div class="spec-item"><div class="spec-icon">❄️</div><div class="spec-key">Teema</div><div class="spec-val">Elsa / Frozen</div></div>
+      <div class="spec-item"><div class="spec-icon">📍</div><div class="spec-key">Asukoht</div><div class="spec-val">Tartu &amp; Lõuna-Eesti</div></div>
+      <div class="spec-item"><div class="spec-icon">✅</div><div class="spec-key">Paigaldus</div><div class="spec-val">Hinna sees</div></div>
+    </div>
+
+    <a href="mailto:info@paevakangelane.ee?subject=Elsa%20Frozen%20batuut%20%E2%80%94%20p%C3%A4ring&body=Tere!%0A%0ASoovin%20rentida%20Elsa%20Frozen%20batuuti.%0A%0ASoovitud%20kuup%C3%A4ev%3A%20%0AKoht%3A%20%0A%0AT%C3%A4nan!" class="cta-btn">Broneeri batuut →</a>
+    <a href="tel:+37258733080" class="cta-secondary">📞 Helista — +372 5873 3080</a>
+
+    <div class="trust-row">
+      <div class="trust-item"><span class="trust-icon">🚚</span>Kohaletoimetamine</div>
+      <div class="trust-item"><span class="trust-icon">⚙️</span>Paigaldus</div>
+      <div class="trust-item"><span class="trust-icon">❄️</span>Printsessidele</div>
+      <div class="trust-item"><span class="trust-icon">💬</span>Kiire vastus</div>
+    </div>
+  </div>
+</div>
+
+<div class="details-section">
+  <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:.75rem;border-bottom:1px solid var(--border)">Lisainfo</div>
+  <div class="details-grid">
+    <div class="detail-block">
+      <div class="detail-block-title">🚚 Kohaletoimetamine</div>
+      <ul class="detail-list">
+        <li>Toome batuudi kohale ja võtame peo lõppedes ära</li>
+        <li>Teenindame Tartut ja Lõuna-Eestit</li>
+        <li>Pikema vahemaa puhul lepime eraldi kokku</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">📋 Nõuded paigalduseks</div>
+      <ul class="detail-list">
+        <li>Tasane ala: muru, asfalt või muld</li>
+        <li>Vaba ruum vähemalt 7 × 7 m</li>
+        <li>220V elektripistik lähedal (või generaator)</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">🔒 Ohutus</div>
+      <ul class="detail-list">
+        <li>Batuut on valmistatud turvalise PVC materjalist</li>
+        <li>Iga rendikorral kontrollitakse seisukorda</li>
+        <li>Täiskasvanute järelvalve vajalik</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <div class="detail-block-title">💰 Hinnakujundus</div>
+      <ul class="detail-list">
+        <li>Hind €100–150 päeva kohta</li>
+        <li>Paigaldus ja äravõtmine hinna sees</li>
+        <li>Küsi pakkumist — vastame kiiresti</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>© 2025 Päevakangelane · OHwood OÜ</div>
+  <div style="margin-top:.5rem"><a href="mailto:info@paevakangelane.ee">info@paevakangelane.ee</a> · Tartu &amp; Lõuna-Eesti</div>
+</footer>
+
+<script>
+function setPhoto(thumb, src) {
+  document.getElementById('main-photo').src = src;
+  document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+</script>
+</body>
+</html>
