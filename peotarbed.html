@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peotarvete rent — Päevakangelane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#e05a2b;--slate:#1e2a38;--muted:#7a8696;--border:rgba(0,0,0,0.10);--bg:#f6f9fc}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
+.site-header{background:var(--slate);color:#fff;padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .15s}
+.back-link:hover{color:#fff}
+
+/* PAGE HERO */
+.page-hero{background:var(--slate);color:#fff;padding:3rem 2rem 2.5rem;text-align:center}
+.page-eyebrow{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:500;line-height:1.2;margin-bottom:.75rem}
+.page-sub{font-size:15px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;line-height:1.7}
+
+/* PRODUCTS GRID */
+.items-section{max-width:1000px;margin:0 auto;padding:3rem 2rem 5rem}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.items-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+
+/* ITEM CARD */
+.item-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.item-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#dde8f0;display:block}
+.item-body{padding:1.25rem;flex:1;display:flex;flex-direction:column}
+.item-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:.4rem}
+.item-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1rem;flex:1}
+.item-specs{list-style:none;margin-bottom:1.25rem}
+.item-specs li{font-size:12px;color:var(--muted);padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;align-items:flex-start;gap:.5rem}
+.item-specs li:last-child{border-bottom:none}
+.item-specs li::before{content:'·';color:var(--accent);font-weight:700;flex-shrink:0}
+.item-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.75rem;border-top:1px solid var(--border)}
+.item-price{font-size:18px;font-weight:600;color:var(--slate)}
+.item-price span{font-size:11px;font-weight:400;color:var(--muted)}
+
+/* CTA */
+.cta-block{background:var(--slate);color:#fff;padding:3rem 2rem;text-align:center}
+.cta-title{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:.75rem}
+.cta-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:1.75rem;line-height:1.65}
+.cta-buttons{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:.9rem 1.75rem;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:opacity .15s}
+.btn-primary:hover{opacity:.88}
+.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:.9rem 1.75rem;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:border-color .15s}
+.btn-secondary:hover{border-color:#fff}
+
+.site-footer{background:var(--slate);color:rgba(255,255,255,0.45);text-align:center;padding:2rem;font-size:12px}
+.site-footer a{color:rgba(255,255,255,0.6);text-decoration:none}
+
+@media(max-width:640px){
+  .items-grid{grid-template-columns:1fr}
+  .site-header{padding:0 1rem}
+  .page-hero{padding:2.5rem 1.5rem 2rem}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-438985291"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-438985291');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none">
+    <img src="logo.png" alt="Päevakangelane" style="height:38px;width:auto;object-fit:contain" onerror="this.style.display='none'">
+  </a>
+  <a href="index.html" class="back-link">← Tagasi avalehele</a>
+</header>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Peotarvete rent</div>
+  <h1 class="page-title">Kõik vajalik ühest kohast</h1>
+  <p class="page-sub">Lauad, toolid, pingid ja lauakatted — rendi peole sobiv varustus ja keskendu ainult pidule.</p>
+</div>
+
+<div class="items-section">
+  <div class="section-label">Rendivalik</div>
+  <div class="items-grid">
+
+    <!-- Piklik laud -->
+    <div class="item-card">
+      <img class="item-img" src="104632b7-image.jpg" alt="Piklik kokkupandav laud" onerror="this.style.background='#dde8f0'">
+      <div class="item-body">
+        <div class="item-title">Piklik laud</div>
+        <div class="item-desc">Kerge ja vastupidav kokkupandav laud, sobib nii sise- kui välisüritustele.</div>
+        <ul class="item-specs">
+          <li>Mõõdud: 183 × 76 × 73 cm</li>
+          <li>Mahutab kuni 8 inimest</li>
+          <li>Kokkupandav, kergesti transporditav</li>
+        </ul>
+        <div class="item-footer">
+          <div class="item-price">€20 <span>/ päev</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laud + toolid -->
+    <div class="item-card">
+      <img class="item-img" src="tavalaud_toolidega.avif" alt="Laud ja toolid" onerror="this.style.background='#dde8f0'">
+      <div class="item-body">
+        <div class="item-title">Laud + 8 tooli</div>
+        <div class="item-desc">Täiskomplekt — piklik laud koos 8 plastiktooli ja sobivate lauakattetega (valikuline).</div>
+        <ul class="item-specs">
+          <li>Piklik laud 183 × 76 × 73 cm</li>
+          <li>8 kokkupandavat plastiktooli</li>
+          <li>Lauakate valge või must +€6/tk</li>
+        </ul>
+        <div class="item-footer">
+          <div class="item-price">€50 <span>/ päev</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ümmargune laud -->
+    <div class="item-card">
+      <img class="item-img" src="7d6ac839-image.jpg" alt="Ümmargune laud" onerror="this.style.background='#dde8f0'">
+      <div class="item-body">
+        <div class="item-title">Ümmargune laud</div>
+        <div class="item-desc">Elegantne ümmargune kokkupandav laud — ideaalne pidulauaks või buffetiks.</div>
+        <ul class="item-specs">
+          <li>Kokkupandav, kergesti transporditav</li>
+          <li>Sobib sise- ja välisüritustele</li>
+          <li>Lauakate valge või must +€6/tk</li>
+        </ul>
+        <div class="item-footer">
+          <div class="item-price">€20 <span>/ päev</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lauakatted -->
+    <div class="item-card">
+      <img class="item-img" src="laualinad.avif" alt="Lauakatted" onerror="this.style.background='#dde8f0'">
+      <div class="item-body">
+        <div class="item-title">Lauakatted</div>
+        <div class="item-desc">Korralikud lauakatted annavad peole viimistletud ilme. Saadaval valgel ja mustal.</div>
+        <ul class="item-specs">
+          <li>Valge või must</li>
+          <li>Sobib pikiliku lauaga (183cm)</li>
+          <li>Puhas ja triigitud</li>
+        </ul>
+        <div class="item-footer">
+          <div class="item-price">€6 <span>/ tk</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kõlar -->
+    <div class="item-card">
+      <img class="item-img" src="d17158f7-image.jpg" alt="JBL PartyBox kõlar" onerror="this.style.background='#dde8f0'">
+      <div class="item-body">
+        <div class="item-title">JBL PartyBox kõlar</div>
+        <div class="item-desc">Võimas bluetooth-kõlar LED-tuledega — täiuslik muusika igaks peoks, nii sise- kui õuealal.</div>
+        <ul class="item-specs">
+          <li>Bluetooth ühendus</li>
+          <li>Sisseehitatud LED-valgustus</li>
+          <li>Ratastega, kergesti liigutatav</li>
+          <li>Sobib nii sise- kui välisüritustele</li>
+        </ul>
+        <div class="item-footer">
+          <div class="item-price">€30 <span>/ päev</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-block">
+  <div class="cta-title">Küsi pakkumist</div>
+  <div class="cta-sub">Kirjuta meile või helista — lepime kiiresti kokku mis sul vaja on.</div>
+  <div class="cta-buttons">
+    <a href="mailto:info@paevakangelane.ee?subject=Peotarvete%20rent&body=Tere!%0A%0ASoovin%20rentida%20peotarbeid.%0A%0ASoovitud%20kuup%C3%A4ev%3A%20%0AKoht%3A%20%0AVajadus%20(lauad%2C%20toolid%2C%20lauakatted)%3A%20%0A%0AT%C3%A4nan!" class="btn-primary">Saada e-kiri →</a>
+    <a href="tel:+37258733080" class="btn-secondary">📞 +372 5873 3080</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>© 2025 Päevakangelane · OHwood OÜ</div>
+  <div style="margin-top:.5rem"><a href="mailto:info@paevakangelane.ee">info@paevakangelane.ee</a> · Tartu &amp; Lõuna-Eesti</div>
+</footer>
+
+</body>
+</html>
