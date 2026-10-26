@@ -24,6 +24,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
 .hero-eyebrow{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,60px);font-weight:500;line-height:1.15;margin-bottom:1.25rem;max-width:700px;margin-left:auto;margin-right:auto}
 .hero-sub{font-size:16px;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 2rem;line-height:1.7}
+.hero-info{font-size:13px;color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto 1.5rem;line-height:1.65}
 .hero-cta{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 2rem;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity .15s}
 .hero-cta:hover{opacity:.88}
 .hero-badges{display:flex;gap:1.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
@@ -84,7 +85,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
 <section class="hero">
   <div class="hero-eyebrow">Batuudi rent · Tartu &amp; Lõuna-Eesti</div>
   <h1 class="hero-title">Tee oma lapsest päevakangelane!</h1>
-  <p class="hero-sub">Rendi batuut otse oma peole — toome kohale ja paigaldame, või tule ise järgi. Lihtsalt naudi!</p>
+  <p class="hero-sub">Rendi batuut otse oma peole — toome kohale ja paigaldame või tule ise järgi. Lihtsalt naudi!</p>
+  <p class="hero-info">Tuulise ja vihmase ilmaga batuute välja ei rendi. Ise paigaldamise korral lisame kaasa kasutamisjuhendi. Maksimaalne hüppajate arv 10, ühe hüppaja kehakaal ei tohi ületada 35 kg.</p>
   <a href="mailto:info@paevakangelane.ee?subject=Batuudi%20rent&body=Tere!%0A%0ASoovin%20rentida%20batuuti.%0A%0ASoovitud%20kuup%C3%A4ev%3A%20%0ABatuut%3A%20%0AKoht%3A%20%0A%0AT%C3%A4nan!" class="hero-cta">Küsi pakkumist →</a>
   <div class="hero-badges">
     <div class="badge">🚚 Toome kohale või tule ise järgi</div>
@@ -140,6 +142,26 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
     </a>
   </div>
 </section>
+
+<section class="products" style="padding-top:0">
+  <div class="section-label">Peotarbed</div>
+  <div class="product-grid" style="grid-template-columns:1fr">
+    <a href="peotarbed.html" class="product-card" style="flex-direction:row;max-width:600px">
+      <div class="card-img-wrap" style="width:220px;flex-shrink:0;aspect-ratio:unset;height:160px">
+        <img src="tavalaud_toolidega.avif" alt="Lauad ja toolid" onerror="this.style.background='#dde8f0'">
+      </div>
+      <div class="card-body">
+        <div class="card-title">Peotarvete rent</div>
+        <div class="card-sub">Lauad, toolid, pingid ja lauakatted — kõik vajalik ühest kohast. Sobib nii väikestele kui suurtele üritustele.</div>
+        <div class="card-footer">
+          <div class="card-price">alates €20 <span>/ päev</span></div>
+          <div class="card-arrow">→</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
 <section class="how-section">
   <div class="how-inner">
     <div class="how-title">Kuidas see töötab?</div>
