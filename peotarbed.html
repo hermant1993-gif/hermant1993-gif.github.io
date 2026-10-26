@@ -30,6 +30,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
 /* ITEM CARD */
 .item-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .item-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#dde8f0;display:block}
+.item-img.pos-left{object-position:left center}
+.item-img.pos-center{object-position:center center}
 .item-body{padding:1.25rem;flex:1;display:flex;flex-direction:column}
 .item-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:.4rem}
 .item-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1rem;flex:1}
@@ -107,7 +109,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
 
     <!-- Laud + toolid -->
     <div class="item-card">
-      <img class="item-img" src="laud-toolid.jpg" alt="Laud ja toolid" onerror="this.style.background='#dde8f0'">
+      <img class="item-img pos-left" src="laud-toolid.jpg" alt="Laud ja toolid" onerror="this.style.background='#dde8f0'">
       <div class="item-body">
         <div class="item-title">Laud + 8 tooli</div>
         <div class="item-desc">Täiskomplekt — piklik laud koos 8 plastiktooli ja sobivate lauakattetega (valikuline).</div>
@@ -158,7 +160,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate)}
 
     <!-- Kõlar -->
     <div class="item-card">
-      <img class="item-img" src="kolar.jpg" alt="JBL PartyBox kõlar" onerror="this.style.background='#dde8f0'">
+      <img class="item-img" src="kolar.jpg" alt="JBL PartyBox kõlar" style="object-position:center top" onerror="this.style.background='#dde8f0'">
       <div class="item-body">
         <div class="item-title">JBL PartyBox kõlar</div>
         <div class="item-desc">Võimas bluetooth-kõlar LED-tuledega — täiuslik muusika igaks peoks, nii sise- kui õuealal.</div>
